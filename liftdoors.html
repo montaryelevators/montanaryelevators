@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lift Doors Showcase</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #F5F5F5;
+            color: #333;
+        }
+        header {
+            background-color:#F9F6F0;
+            color: #D4AF37;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: left;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        header h1 {
+            margin: 0;
+            display: flex;
+            align-items: center;
+        }
+        header img {
+            height: 40px;
+            margin-right: 10px;
+        }
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+        }
+        nav ul li {
+            margin: 0 15px;
+        }
+        nav ul li a {
+            color: #D4AF37;
+            text-decoration: none;
+            font-size: 16px;
+            transition: color 0.3s;
+        }
+        nav ul li a:hover {
+            color: #007BFF;
+        }
+        .category {
+            margin: 40px auto;
+            text-align: center;
+            width: 90%;
+            max-width: 1200px;
+        }
+        .category h2 {
+            margin-bottom: 15px;
+            font-size: 1.8rem;
+            text-transform: uppercase;
+            color: #1A237E;
+            border-bottom: 3px solid #FFD700;
+            display: inline-block;
+            padding-bottom: 10px;
+        }
+        .category p {
+            font-size: 1.1rem;
+            color: #555;
+            margin-bottom: 30px;
+            line-height: 1.6;
+        }
+        .category .lifts {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            justify-content: center;
+        }
+        .category .lift {
+            width: 100%;
+            max-width: 300px;
+            cursor: pointer;
+            border: 2px solid #FFD700;
+            border-radius: 10px;
+            overflow: hidden;
+            background-color: #FFFFFF;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .category .lift:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+        .category .lift img {
+            width: 100%;
+            height: 200px;
+            display: block;
+            object-fit: cover;
+        }
+        .category .lift-name {
+            margin-top: 10px;
+            color: #1A237E;
+            font-size: 1.2rem;
+            text-align: center;
+            font-weight: bold;
+        }
+        footer {
+            background-color: #F5F5F5;
+            color: #1A237E;
+            text-align: center;
+            padding: 15px;
+            position: relative;
+            width: 100%;
+            font-size: 1rem;
+            border-top: 3px solid #FFD700;
+            box-shadow: 0 -2px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Fullscreen View Styling */
+        #fullscreen {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+        }
+        #fullscreen img {
+            max-width: 90%;
+            max-height: 80%;
+            border: 5px solid #FFD700;
+            border-radius: 10px;
+        }
+        #fullscreen .close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 2rem;
+            color: #FFF;
+            cursor: pointer;
+        }
+        #fullscreen .lift-name {
+            color: #FFF;
+            font-size: 1.5rem;
+            margin-top: 10px;
+        }
+
+        /* Mobile View Adjustments */
+       
+        @media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+    </style>
+</head>
+<body>
+    <header>
+        <h1><img src="logo.png" alt="Company Logo">montanary_elevators</h1>
+        <nav>
+            <button id="menu-toggle" style="display: none;">☰</button>
+
+            <ul>
+                <li><a href="index.html">About Us</a></li>
+                <li><a href="index.html">Services</a></li>
+
+                <li><a href="index.html">products</a></li>
+                <li><a href="videos.html">Videos</a></li>
+
+                <li><a href="index.html">Projects</a></li>
+                
+                <li><a href="index.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+
+    <!-- Automatic Doors -->
+    <div class="category">
+        <h2>Automatic Doors</h2>
+        <p>
+            Automatic doors are designed for ease of access and are commonly used in commercial and residential settings. 
+            These doors open and close automatically, ensuring convenience and safety for users.
+        </p>
+        
+    </div>
+
+    <!-- Add more categories as needed -->
+
+    <div class="category">
+        <h2>Swing Doors</h2>
+        <p>
+            Swing doors are classic and versatile, perfect for traditional and modern spaces. These doors swing open 
+            either inward or outward and are often chosen for their aesthetic appeal.
+        </p>
+        <div class="lifts">
+            <div class="lift" data-name="Latest Automatic Swing Door">
+                <img src="swingdoor1.jpg" alt="Automatic Door 1">
+                <div class="lift-name">Latest Automatic Swing Door</div>
+            </div>
+            <div class="lift" data-name="Swing Door Full Glass">
+                <img src="homelift2.jpg" alt="Automatic Door 2">
+                <div class="lift-name">Swing Door Full Glass</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Center Opening Doors -->
+    <div class="category">
+        <h2>Center Opening Doors</h2>
+        <p>
+            Center opening doors provide an elegant solution where space is limited. These doors open from the center, 
+            offering symmetry and efficient use of space.
+        </p>
+        <div class="lifts">
+            <div class="lift" data-name="Automatic Center Opening Door">
+                <img src="centeropeningdoor1.jpg" alt="Automatic Door 1">
+                <div class="lift-name">Automatic Center Opening Door</div>
+            </div>
+            <div class="lift" data-name="Gold SS Center Opening Auto Door">
+                <img src="centeropeningdoor2.jpg" alt="Automatic Door 2">
+                <div class="lift-name">Gold SS Center Opening Auto Door</div>
+            </div>
+            <div class="lift" data-name="SS Plain Automatic Center Opening Door">
+                <img src="centeropeningdoor3.png" alt="Automatic Door 2">
+                <div class="lift-name">SS Plain Automatic Center Opening Door</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Big Vision Doors -->
+    <div class="category">
+        <h2>Big Vision Doors</h2>
+        <p>
+            Big vision doors feature large glass panels that offer expansive views and bring in natural light. 
+            They are ideal for modern spaces looking to make a bold statement.
+        </p>
+        <div class="lifts">
+            <div class="lift" data-name="SS Big Vision Door">
+                <img src="bigvision1.jpg" alt="Automatic Door 1">
+                <div class="lift-name">SS Big Vision Door</div>
+            </div>
+            <div class="lift" data-name="SS Automatic Door Big Vision">
+                <img src="bigvision2.jpg" alt="Automatic Door 2">
+                <div class="lift-name">SS Automatic Door Big Vision</div>
+            </div>
+            <div class="lift" data-name="MS Sliding Door Big Vision">
+                <img src="homelift3.jpg" alt="Automatic Door 2">
+                <div class="lift-name">MS Sliding Door Big Vision</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Sliding Doors -->
+    <div class="category">
+        <h2>Sliding Doors</h2>
+        <p>
+            Sliding doors offer a sleek and modern solution for spaces where traditional swinging doors aren't practical. 
+            They are perfect for maximizing space efficiency and enhancing interiors.
+        </p>
+        <!-- <div class="lifts">
+            <div class="lift" data-name="MS Auto Door">
+                <img src="msautoimg.jpg" alt="Automatic Door 1">
+                <div class="lift-name">MS Auto Door</div>
+            </div>
+            <div class="lift" data-name="Automatic Door 2">
+                <img src="automatic2.jpg" alt="Automatic Door 2">
+                <div class="lift-name">Automatic Door 2</div>
+            </div>
+        </div> -->
+    </div>
+
+    <!-- Wood Color Doors -->
+    <div class="category">
+        <h2>Wood Color Doors</h2>
+        <p>
+            Wood-colored doors bring warmth and elegance to any setting. These doors mimic the look of natural wood, 
+            adding sophistication to both modern and traditional interiors.
+        </p>
+        <div class="lifts">
+            <div class="lift" data-name="MS Wood Color Door">
+                <img src="mswooddoor.jpg" alt="Automatic Door 1">
+                <div class="lift-name">MS Wood Color Door</div>
+            </div>
+            <!-- <div class="lift" data-name="Automatic Door 2">
+                <img src="automatic2.jpg" alt="Automatic Door 2">
+                <div class="lift-name">Automatic Door 2</div>
+            </div> -->
+        </div>
+    </div>
+
+    <!-- Collapsible Doors -->
+    <div class="category">
+        <h2>Collapsible Doors</h2>
+        <p>
+            Collapsible doors are ideal for spaces that require security with a compact design. They fold easily and 
+            are commonly used in industrial and commercial buildings.
+        </p>
+        <div class="lifts">
+            <div class="lift" data-name="Collapsible Door">
+                <img src="collasablegate.jpeg" alt="Automatic Door 1">
+                <div class="lift-name">Collapsible Door</div>
+            </div>
+            <!-- <div class="lift" data-name="Automatic Door 2">
+                <img src="automatic2.jpg" alt="Automatic Door 2">
+                <div class="lift-name">Automatic Door 2</div>
+            </div> -->
+        </div>
+    </div>
+
+
+    <footer>
+        &copy; 2024 montanary_elevators ! All Rights Reserved.
+    </footer>
+
+    <!-- Fullscreen View -->
+    <div id="fullscreen">
+        <span class="close" id="close">&times;</span>
+        <img id="fullscreenImg" src="" alt="Full Screen View">
+        <div class="lift-name" id="fullscreenName"></div>
+    </div>
+
+    <script>
+         document.addEventListener("DOMContentLoaded", () => {
+    const menuToggle = document.getElementById("menu-toggle");
+    const nav = document.querySelector("nav ul");
+
+    // Toggle button visibility on smaller screens
+    const handleResize = () => {
+        if (window.innerWidth <= 768) {
+            menuToggle.style.display = "block";
+            nav.style.display = "none";
+        } else {
+            menuToggle.style.display = "none";
+            nav.style.display = "flex";
+        }
+    };
+
+    // Toggle the navigation menu visibility
+    menuToggle.addEventListener("click", () => {
+        if (nav.style.display === "none" || nav.style.display === "") {
+            nav.style.display = "flex";
+        } else {
+            nav.style.display = "none";
+        }
+    });
+
+    // Handle initial load and resize events
+    handleResize();
+    window.addEventListener("resize", handleResize);
+});
+
+        document.querySelectorAll('.lift img').forEach(img => {
+            img.addEventListener('click', function () {
+                const lift = this.parentElement;
+                const fullscreen = document.getElementById('fullscreen');
+                const fullscreenImg = document.getElementById('fullscreenImg');
+                const fullscreenName = document.getElementById('fullscreenName');
+                fullscreenImg.src = this.src;
+                fullscreenName.textContent = lift.dataset.name;
+                fullscreen.style.display = 'flex';
+            });
+        });
+
+        document.getElementById('close').addEventListener('click', function () {
+            const fullscreen = document.getElementById('fullscreen');
+            fullscreen.style.display = 'none';
+        });
+
+        // Close the fullscreen view on clicking outside the image
+        document.getElementById('fullscreen').addEventListener('click', function (event) {
+            if (event.target === this) {
+                this.style.display = 'none';
+            }
+        });
+    </script>
+</body>
+</html>

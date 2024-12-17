@@ -1,0 +1,1148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>montanary_elevatorss</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #C0C0C0;
+            color: goldenrod;
+        }
+        header {
+            background-color:#F9F6F0;
+            color: #D4AF37;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: left;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        header h1 {
+            margin: 0;
+            display: flex;
+            align-items: center;
+        }
+        header img {
+            height: 40px;
+            margin-right: 10px;
+        }
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+        }
+        nav ul li {
+            margin: 0 15px;
+        }
+        nav ul li a {
+            color: #D4AF37;
+            text-decoration: none;
+            font-size: 16px;
+            transition: color 0.3s;
+        }
+        nav ul li a:hover {
+            color: #007BFF;
+        }
+       
+        .hero {
+    position: relative;
+    height: 80vh;  /* Adjusted height for better balance */
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #B8860B;
+    text-align: center;
+    padding: 40px 0; /* Added padding for spacing */
+}
+        .hero .background-video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1;
+        }
+        .hero .background-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1;
+        }
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 0;
+        }
+        .hero-content {
+            z-index: 1;
+        }
+        .hero-content h2 {
+            font-size: 3rem;
+            margin: 0 0 10px;
+        }
+        .hero-content p {
+            font-size: 1.2rem;
+        }
+        .section {
+    padding: 60px 20px;  /* Increased padding for better separation */
+    max-width: 1200px;
+    margin: 40px auto;  /* Added margin for spacing between sections */
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+        .services {
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+        }
+        .services div {
+            flex: 1;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            background-color: #f9f9f9;
+            text-align: center;
+            transition: transform 0.3s;
+        }
+        .services div:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+        .projects {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+        .projects div {
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 10px #F6F6F6;
+            background-color: #fff;
+            transition: transform 0.3s;
+        }
+        .projects div:hover {
+            transform: scale(1.05);
+        }
+        .projects img {
+            width: 5%;
+            height: auto;
+        }
+        .projects h3 {
+            margin: 0;
+            padding: 15px;
+            font-size: 20px;
+            background-color: #007BFF;
+            color: white;
+            text-align: center;
+        }
+        .projects p {
+            padding: 15px;
+            font-size: 16px;
+        }
+        footer {
+        background-color:#001F3D;
+        color: white;
+        padding: 30px 20px;
+        text-align: center;
+    }
+
+    .footer-content {
+        margin-bottom: 20px;
+    }
+
+    .footer-content p {
+        margin: 0;
+        font-size: 14px;
+        color: #D4AF37;
+    }
+
+    .social-icons {
+        margin-top: 10px;
+    }
+
+    .social-icons a {
+        color: #FFD700;
+        margin: 0 10px;
+        text-decoration: none;
+        font-size: 24px;
+        transition: color 0.3s;
+    }
+
+    .social-icons a:hover {
+        color: #007BFF;
+    }
+
+    .locations-container {
+        display: flex;
+        justify-content: space-between;
+        text-align: left;
+        flex-wrap: wrap;
+        gap: 20px;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 20px 0;
+    }
+    .services {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+    padding: 20px 0;
+}
+.services div {
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 2px 10px #F9F6F0;
+    transition: transform 0.3s;
+}
+.services div:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+
+    .branch-info, .service-areas {
+        background-color: #F9F6F0;
+        padding: 15px;
+        border-radius: 8px;
+        width: 45%;
+        color: #D4AF37;
+    }
+
+    .branch-info h4, .service-areas h4 {
+        font-size: 18px;
+        margin-bottom: 10px;
+        border-bottom: 1px solid #007BFF;
+        padding-bottom: 5px;
+    }
+
+    .service-areas ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    .service-areas li {
+        font-size: 14px;
+        margin: 5px 0;
+        color: #ccc;
+    }
+
+    @media (max-width: 768px) {
+        .locations-container {
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .branch-info, .service-areas {
+            width: 100%;
+            margin-bottom: 20px;
+        }
+    }
+
+.locations-container {
+    display: flex;
+    justify-content: space-around;
+    text-align: left;
+    margin-top: 20px;
+}
+
+.locations-container div {
+    width: 40%; /* Adjust as needed for spacing */
+}
+
+.locations-container h4 {
+    font-size: 18px;
+    margin-bottom: 10px;
+    color: #9C7C38;
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 5px;
+}
+
+.locations-container ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.locations-container li {
+    font-size: 14px;
+    color: #D4AF37;
+    margin: 5px 0;
+}
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 15px;
+        }
+        .social-icons a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: #555;
+            border-radius: 50%;
+            text-decoration: none;
+            color: #D4AF37;
+            font-size: 18px;
+            transition: background-color 0.3s;
+        }
+        .social-icons a:hover {
+            background-color: #007BFF;
+        }
+          /* Features Section Styles */
+    .features {
+      padding: 50px 20px;
+      background-color: #f9f9f9;
+      text-align: center;
+    }
+
+    .section-title {
+      font-size: 2em;
+      margin-bottom: 30px;
+      color:#B8860B;
+    }
+
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .feature-item {
+      background: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .feature-item:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+    }
+
+    .feature-icon {
+      width: 60px;
+      height: 60px;
+      margin-bottom: 15px;
+    }
+
+    .feature-item h3 {
+      font-size: 1.2em;
+      margin-bottom: 10px;
+      color: #555;
+    }
+
+    .feature-item p {
+      font-size: 0.9em;
+      color: #777;
+      line-height: 1.6;
+    }
+   /* Base styles for the blocks */
+.projects div, .services-grid .service-item {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    background-size: cover; /* Background image scales to cover the container */
+    background-position: center;
+    height: 200px; /* Default height */
+    transition: all 0.4s ease; /* Smooth transition */
+    position: relative;
+    cursor: pointer;
+}
+
+/* Hover styles to expand the block */
+.projects div:hover, .services-grid .service-item:hover {
+    height: 400px; /* Expand height on hover */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3); /* Add a more prominent shadow */
+}
+
+/* Text container inside the block */
+.projects div .content, .services-grid .service-item .content {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background:#F9F6F0; /* Semi-transparent background for text readability */
+    color: #FFE4C4;
+    padding: 15px;
+    transition: opacity 0.4s ease; /* Smooth fade-in/out effect */
+    opacity: 0; /* Hidden by default */
+}
+
+/* Show the content on hover */
+.projects div:hover .content, .services-grid .service-item:hover .content {
+    opacity: 1; /* Show the content */
+}
+
+/* "Read More" button */
+.read-more {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 8px 12px;
+    color: white;
+    background-color:#FFD700;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.read-more:hover {
+    background-color: #0056b3; /* Darker shade on hover */
+}
+
+
+/* Mobile View Adjustments */
+@media (max-width: 768px) {
+    .projects div, .services-grid .service-item {
+        height: 200px; /* Reduce height for mobile view */
+    }
+
+    .projects h3, .services-grid h3 {
+        font-size: 18px; /* Adjust heading size */
+    }
+
+    .projects p, .services-grid p {
+        font-size: 14px; /* Adjust text size */
+    }
+}
+
+
+    .services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.service-item {
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.service-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 10px #DAA520;
+}
+
+.service-icon {
+    width: 60px;
+    height: 60px;
+    margin-bottom: 15px;
+}
+
+.service-item h3 {
+    font-size: 1.2em;
+    margin-bottom: 10px;
+    color: #555;
+}
+
+.service-item p {
+    font-size: 0.9em;
+    color: #D4AF37;
+    line-height: 1.6;
+}
+
+    @media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+
+    .hero {
+        padding: 50px 20px;
+        font-size: 16px;
+    }
+
+    .services, .projects {
+        flex-direction: column;
+    }
+
+    .locations-container {
+        flex-direction: column;
+    }
+}
+.contact-container {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.contact-details {
+    flex: 1;
+    min-width: 100px;
+}
+
+
+.contact-details p{
+    color:black;
+}
+.contact-image {
+    flex: 1;
+    min-width: 200px;
+    text-align: center;
+}
+
+.contact-image img {
+    width: 90%;
+    max-width: 200px;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+@media (max-width: 768px) {
+    .contact-container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .contact-details {
+        margin-bottom: 20px;
+    }
+}
+@media (max-width: 768px) {
+    .hero {
+        height: 60vh;  /* Adjusted hero height for smaller screens */
+    }
+    .section {
+        padding: 40px 20px;  /* Adjusted padding on smaller screens */
+    }
+}
+/* Styling for About Us Section */
+/* Updated About Us Section */
+.about-section {
+    background: linear-gradient(135deg, #f5f5f5, #e0e0e0); /* Soft gradient */
+    padding: 60px 20px;
+    text-align: center;
+}
+
+.about-container {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    max-width: 1200px;
+    margin: auto;
+}
+
+.about-text {
+    flex: 1;
+    max-width: 600px;
+    margin-right: 40px;
+    text-align: left;
+    padding: 20px;
+}
+
+.about-text h2 {
+    font-size: 2.5rem;
+    color: goldenrod;
+    margin-bottom: 20px;
+    font-family: 'Arial', sans-serif;
+}
+
+.about-text p {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    color: #003366;
+    margin-bottom: 15px;
+    text-align: justify;
+}
+
+.about-image {
+    flex: 1;
+    max-width: 240px;
+    padding: 20px;
+    text-align: center;
+}
+
+.about-image img {
+    width: 100%;
+    max-width: 400px;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+@media (max-width: 768px) {
+    .about-container {
+        flex-direction: column;
+        text-align: center;
+    }
+    .about-text {
+        margin-right: 0;
+        margin-bottom: 20px;
+    }
+    .about-image img {
+        max-width: 100%;
+    }
+}
+
+.about-video video {
+    width: 60%;       /* Makes the video scale to fit its container */
+    max-width: 500px;  /* Sets a maximum width for the video */
+    height: auto;      /* Maintains aspect ratio */
+    border-radius: 8px; /* Optional: Adds rounded corners for styling */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Optional: Adds a shadow effect */
+    display: block;    /* Centers the video when combined with margin auto */
+    margin: 0 auto;    /* Centers the video horizontally */
+}
+
+/* General Styles for Elevator Specifications Section */
+.elevator-specifications {
+  padding: 2em;
+  background-color: #f9f9f9;
+}
+
+.section-title {
+  text-align: center;
+  font-size: 2em;
+  margin-bottom: 1em;
+  color: #333;
+}
+
+.specifications-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5em;
+  justify-items: center;
+  align-items: start;
+}
+
+.specification-item {
+  background: #fff;
+  padding: 1.5em;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.specification-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.specification-icon {
+  width: 100%;
+  max-width: 250px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 5px;
+  margin-bottom: 1em;
+  cursor: pointer;
+}
+
+.specification-item h3 {
+  font-size: 1.5em;
+  color: #444;
+  margin-bottom: 0.5em;
+}
+
+.specification-item p {
+  font-size: 1em;
+  color: #666;
+  line-height: 1.6;
+}
+
+/* Fullscreen Modal Styling */
+.fullscreen-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.9);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.fullscreen-overlay img {
+  max-width: 90%;
+  max-height: 90%;
+  border: 2px solid white;
+  border-radius: 5px;
+}
+
+.fullscreen-overlay:active {
+  cursor: pointer;
+}
+
+ /* Styling for the call button */
+ .call-button {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color:#32CD32; /* WhatsApp-like green */
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+            cursor: pointer;
+            z-index: 1000;
+        }
+
+        .call-button:hover {
+            background-color: blue;
+        }
+
+        .call-icon {
+            font-size: 24px;
+        }
+        .section-title{
+            color: #B8860B;
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <header>
+        <h1><img src="logo.png" alt="Company Logo">montanary_elevators</h1>
+        <nav>
+            <button id="menu-toggle" style="display: none;">☰</button>
+
+            <ul>
+                <li><a href="#about">About Us</a></li>
+                <li><a href="#service">Services</a></li>
+
+                <li><a href="#products">products</a></li>
+                <li><a href="videos.html">Videos</a></li>
+
+                <li><a href="#projects">Projects</a></li>
+                
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="hero">
+        <!-- Background Video -->
+        <video class="background-video" autoplay muted loop>
+            <source src="backgroundvideo.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+
+        <!-- Background Image (as fallback or alternative) -->
+        <!-- <img class="background-image" src="montanary_elevators.jpg" alt="Background Image"> -->
+
+        <!-- Overlay and Content -->
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <h2>Welcome to Montanary Elevators</h2>
+            <p>Your Comfort, Our Priority</p>
+        </div>
+    </div>
+
+    <!-- <section id="about" class="feature">
+        <div class="about-container">
+            <div class="about-text">
+                <h2>About Montanary Elevators</h2>
+                <p>Welcome to Montanary Elevators, where we redefine vertical transportation with cutting-edge technology, unparalleled safety, and superior customer service. We specialize in providing high-quality elevators that cater to residential, commercial, and industrial spaces. Our products are engineered with precision and designed to enhance the functionality and aesthetics of your building.</p>
+                <p>At Montanary Elevators, we prioritize your safety and convenience. Our team is dedicated to delivering timely, reliable, and innovative elevator solutions that meet the evolving needs of our customers. We don't just provide elevators—we provide peace of mind with our unmatched service, installation, and maintenance.</p>
+                <p>Join us in elevating your world with superior quality, sustainable solutions, and a commitment to excellence. Choose Montanary Elevators for a future that's safe, efficient, and effortlessly accessible.</p>
+            </div>
+            <div class="about-image">
+                <img src="ssbigvision.jpg" alt="Elevator Installation" />
+            </div>
+        </div>
+    </section> -->
+
+    <section id="about" class="feature">
+        <div class="about-container">
+            <div class="about-text">
+                <h2>About Montanary Elevators</h2>
+                <p>Welcome to Montanary Elevators, where we redefine vertical transportation with cutting-edge technology, unparalleled safety, and superior customer service. We specialize in providing high-quality elevators that cater to residential, commercial, and industrial spaces. Our products are engineered with precision and designed to enhance the functionality and aesthetics of your building.</p>
+                <p>At Montanary Elevators, we prioritize your safety and convenience. Our team is dedicated to delivering timely, reliable, and innovative elevator solutions that meet the evolving needs of our customers. We don't just provide elevators—we provide peace of mind with our unmatched service, installation, and maintenance.</p>
+                <p>Join us in elevating your world with superior quality, sustainable solutions, and a commitment to excellence. Choose Montanary Elevators for a future that's safe, efficient, and effortlessly accessible.</p>
+            </div>
+            <div class="about-video">
+                <video controls>
+                    <source src="homelift.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+        </div>
+    </section>
+    
+    
+    
+    <section class="features">
+        <h2 class="section-title">The major ascepts before delivering the Monatary Elevators:</h2>
+        <div class="features-grid">
+          <div class="feature-item">
+            <img src="simple.png" alt="Simple & Elegant Design" class="feature-icon" />
+            <h3>Simple & Elegant Design</h3>
+            <p>Elevator design that enhances the overall look of your building while providing seamless functionality.</p>
+          </div>
+          <div class="feature-item">
+            <img src="user_friendly.png" alt="User-Friendly Controls" class="feature-icon" />
+            <h3>User-Friendly Controls</h3>
+            <p>We create controls by keeping in mind all ages as well as for special needs people.</p>
+          </div>
+          <div class="feature-item">
+            <img src="self_regulations.png" alt="Safety Regulations" class="feature-icon" />
+            <h3>Safety Regulations</h3>
+            <p>Adhering to all guidelines and elevator safety regulations as prescribed by the governing authorities.</p>
+          </div>
+          <div class="feature-item">
+            <img src="safety_grauntee.png" alt="Safety Guarantee" class="feature-icon" />
+            <h3>Safety Guarantee</h3>
+            <p>Our products ensure the safety of your building's occupants and meet rigorous safety standards.</p>
+          </div>
+          <div class="feature-item">
+            <img src="support.png" alt="Our Support" class="feature-icon" />
+            <h3>Our Support</h3>
+            <p>We provide swift and efficient delivery and installation with top-notch customer support.</p>
+          </div>
+          <div class="feature-item">
+            <img src="quality.png" alt="Our Quality" class="feature-icon" />
+            <h3>Our Quality</h3>
+            <p>Our products undergo rigorous testing and are designed with the highest quality standards.</p>
+          </div>
+        </div>
+        </section>
+
+
+
+        <section class="elevator-specifications">
+            <h2 class="section-title">Elevator Specifications</h2>
+            <div class="specifications-grid">
+              <div class="specification-item">
+                <a href="#" onclick="openFullscreen('passengerelevator.jpeg')">
+                  <img src="passengerelevator.jpeg" alt="Passenger Elevator Specification" class="specification-icon" />
+                </a>
+                <h3>Passenger Elevators</h3>
+                <p>Designed to safely transport people between floors, these elevators are widely used in residential, and public buildings with various capacities.</p>
+              </div>
+              <div class="specification-item">
+                <a href="#" onclick="openFullscreen('homelevator.jpg')">
+                  <img src="homelevator.jpg" alt="Home Elevator Specification" class="specification-icon" />
+                </a>
+                <h3>Home Elevators</h3>
+                <p>Compact elevators for residential use, providing convenience and accessibility, especially for the elderly or individuals with mobility challenges.</p>
+              </div>
+              <div class="specification-item">
+                <a href="#" onclick="openFullscreen('strectherelevator.jpg')">
+                  <img src="strectherelevator.jpg" alt="Stretcher Elevator Specification" class="specification-icon" />
+                </a>
+                <h3>Stretcher Elevators</h3>
+                 <p>Specialized elevators for hospitals, designed to transport stretchers and medical equipment with spacious interiors and safety features.</p>
+              </div>
+              <div class="specification-item">
+                <a href="#" onclick="openFullscreen('observationelevator.jpg')">
+                  <img src="observationelevator.jpg" alt="Observation Elevator Specification" class="specification-icon" />
+                </a>
+                <h3>Observation Elevators</h3>
+                <p>Glass-enclosed elevators offering panoramic views, enhancing user experience in high-rise buildings, malls, and luxury spaces.</p>
+              </div>
+            </div>
+        </section>
+
+
+        <section id="products" class="section">
+        <h2 class="section-title">Our Products</h2>
+        <div class="services-grid">
+            <!-- Product 1 -->
+            <div class="service-item" style="background-image: url('liftdoor.jpg');">
+                <div class="content">
+                    <h3>Lift Doors</h3>
+                    <p>Experience comfort and elegance with our advanced home lifts.</p>
+                    <a href="liftdoors.html" class="read-more">Read More</a>
+                </div>
+            </div>
+
+            <div class="service-item" style="background-image: url('liftcabin1.jpg');">
+                <div class="content">
+                    <h3>Lift Cabins</h3>
+                    <p>Latest Cabin with new Features .</p>
+                    <a href="liftcabin.html" class="read-more">Read More</a>
+                </div>
+            </div>
+    
+            <!-- Product 2 -->
+            <div class="service-item" style="background-image: url('touchscreen.jpg');">
+                <div class="content">
+                    <h3>Touch screen</h3>
+                    <p>Latest Touch technology .</p>
+                    <a href="latesttouch.html" class="read-more">Read More</a>
+                </div>
+            </div>
+
+            <div class="service-item" style="background-image: url('accesscard1.jpg');">
+                <div class="content">
+                    <h3>Access Card </h3>
+                    <p>Latest Access crd technology .</p>
+                    <a href="accesscard.html" class="read-more">Read More</a>
+                </div>
+            </div>
+    
+            <!-- Add more products -->
+        </div>
+    </section>
+    
+
+        <section id="projects" class="section">
+            <h2 class="section-title">Our Projects</h2>
+            <div class="services-grid">
+                <!-- Product 1 -->
+                <div class="service-item" style="background-image: url('bonamnilayam.jpg');">
+                    <div class="content">
+                        <h3>Home Lift</h3>
+                        <p>Experience comfort and elegance with our advanced home lifts.</p>
+                        <p>Bhimavaram</p>
+                        <a href="bonamnilayam.jpg" class="read-more">Read More</a>
+                    </div>
+                </div>
+        
+                <!-- Product 2 -->
+                <div class="service-item" style="background-image: url('tadepalligudem.jpg');">
+                    <div class="content">
+                        <h3>Home Lift</h3>
+                        <p>Experience comfort and elegance with our advanced home lifts.</p>
+                        <p>Tadepalligudem</p>
+                        <a href="tadepalligudem.jpg" class="read-more">Read More</a>
+                    </div>
+                </div>
+    
+                <div class="service-item" style="background-image: url('lasyaprojects.png');">
+                    <div class="content">
+                        <h3> Lasya  Enclave</h3>
+                        <p> One lift  of 6 passengers  capacity</p>
+                        <a href="lasyaprojects.png" class="read-more">Read More</a>
+                    </div>
+                </div>
+        
+                <!-- Add more products -->
+            </div>
+        </section>
+
+    <section id="service" class="section">
+        <h2 class="section-title">Our Services</h2>
+        <div class="services-grid">
+            <!-- Service 1: Supply and Installation -->
+            <div class="service-item">
+                <h3>Supply and Installation of Elevators</h3>
+                <p><strong>Home Elevators:</strong> Compact, stylish, and space-efficient lifts designed for private homes.</p>
+                <p><strong>Commercial Elevators:</strong> Heavy-duty lifts for offices, malls, and other commercial buildings.</p>
+                <p><strong>Customizable Elevators:</strong> Tailored solutions for unique architectural requirements, including panoramic glass lifts and premium interiors.</p>
+            </div>
+    
+            <!-- Service 2: 24/7 Maintenance Services -->
+            <div class="service-item">
+                <h3>24/7 Maintenance Services</h3>
+                <p><strong>Emergency Repairs:</strong> Round-the-clock response to breakdowns or issues, with quick deployment of technicians.</p>
+                <p><strong>Preventive Maintenance:</strong> Monthly, quarterly, or yearly checkups to ensure smooth operation.</p>
+                <p><strong>Remote Troubleshooting:</strong> IoT-enabled systems to remotely diagnose and fix smart elevator issues.</p>
+            </div>
+    
+            <!-- Service 3: Annual Maintenance Contract (AMC) -->
+            <div class="service-item">
+                <h3>Annual Maintenance Contract (AMC)</h3>
+                <p>Regular inspection, cleaning, lubrication, and component replacement at no extra charge under the AMC.</p>
+                <p>Comprehensive system performance tests for safety and efficiency.</p>
+            </div>
+    
+            <!-- Service 4: Upgradation and Modernization -->
+            <div class="service-item">
+                <h3>Upgradation and Modernization</h3>
+                <p><strong>Technology Upgrades:</strong> Upgrading existing elevators with the latest technology such as touchless operation, AI fault detection, and energy-saving systems.</p>
+                <p><strong>Interior Design Updates:</strong> Enhancing cabin aesthetics with new flooring, lighting, and panel designs.</p>
+            </div>
+    
+            <!-- Service 5: Safety Checks and Compliance -->
+            <div class="service-item">
+                <h3>Safety Checks and Compliance</h3>
+                <p>Routine safety audits to ensure elevators meet all regulatory standards.</p>
+                <p>Free annual safety inspection reports for peace of mind.</p>
+            </div>
+    
+            <!-- Service 6: IoT-Enabled Services -->
+            <!-- <div class="service-item">
+                <h3>IoT-Enabled Services</h3>
+                <p>Smart elevator management through IoT, enabling real-time monitoring, predictive maintenance, and remote troubleshooting.</p>
+            </div> -->
+    
+            <!-- Service 7: Customer Support Services -->
+            <div class="service-item">
+                <h3>Customer Support Services</h3>
+                <p>24/7 helpline for complaints and assistance. Mobile app for service requests and maintenance tracking.</p>
+                <p>Online portal for AMC renewal and payment options.</p>
+            </div>
+    
+            <!-- Service 8: Installation of Advanced Features -->
+            <div class="service-item">
+                <h3>Installation of Advanced Features</h3>
+                <p>Touchless controls, voice-activated commands, and battery backups for uninterrupted operation during power outages.</p>
+            </div>
+    
+            <!-- Service 9: Energy Efficiency Solutions -->
+            <div class="service-item">
+                <h3>Energy Efficiency Solutions</h3>
+                <p>Retrofitting elevators with energy-efficient motors and lighting systems, with solar-powered options available for homes and small buildings.</p>
+            </div>
+    
+            <!-- Service 10: Elevator Training and Awareness Programs -->
+            <!-- <div class="service-item">
+                <h3>Elevator Training and Awareness Programs</h3>
+                <p>Free workshops for building staff on safe elevator operation and emergency procedures.</p>
+            </div> -->
+        </div>
+    </section>
+    
+    
+    <section id="contact" class="section">
+        <h2>Contact Us</h2>
+        <div class="contact-container">
+            <div class="contact-details">
+                <p>If you have any questions, please reach out to us at:</p>
+                <p>Email: montanaryelevators@gmail.com</p>
+                <p>Phone: 9000737676, 8500884447</p>
+                <p>Address: 10-7-34/1 Rangreej Peta, Rajahmundry, E.G. Dist, A.P</p>
+            </div>
+            <div class="contact-image">
+                <img src="manager.jpg" alt="Contact Us" />
+            </div>
+        </div>
+    </section>
+    <a href="tel:+919000737676" class="call-button" title="Call Us">
+        <span class="call-icon">📞</span>
+    </a>
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2024 Company Name. All Rights Reserved.</p>
+            <div class="social-icons">
+                <a href="https://www.instagram.com/montanary_elevators?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.facebook.com" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                <a href="mailto:montanaryelevators@gmail.com" target="_blank"><i class="fas fa-envelope"></i></a>
+            </div>
+            
+        </div>
+        <div class="locations-container">
+            <!-- Main Branch Section -->
+            <div class="branch-info">
+                <h4>Main Branch</h4>
+                <p>Address: 10-7-34/1, Rangreej Peta, Rajahmundry, E.G. Dist, A.P</p>
+                <p>Contact: 9000737676</p>
+            </div>
+            <!-- Services Available Areas Section -->
+            <div class="service-areas">
+                <h4>Services Available Areas</h4>
+                <ul>
+                    <li>Razole</li>
+                    <li>Palacole</li>
+                    <li>Tadepalligudem</li>
+                    <li>Narsapur</li>
+                    <li>Amalapuram</li>
+                    <li>Bhimavaram</li>
+                    <li>Kakinada</li>
+                    <li>E.G & W.G Dist </li>
+                    <li>Alt Pho-no:8500884447</li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+    const menuToggle = document.getElementById("menu-toggle");
+    const nav = document.querySelector("nav ul");
+
+    // Toggle button visibility on smaller screens
+    const handleResize = () => {
+        if (window.innerWidth <= 768) {
+            menuToggle.style.display = "block";
+            nav.style.display = "none";
+        } else {
+            menuToggle.style.display = "none";
+            nav.style.display = "flex";
+        }
+    };
+
+    // Toggle the navigation menu visibility
+    menuToggle.addEventListener("click", () => {
+        if (nav.style.display === "none" || nav.style.display === "") {
+            nav.style.display = "flex";
+        } else {
+            nav.style.display = "none";
+        }
+    });
+
+    // Handle initial load and resize events
+    handleResize();
+    window.addEventListener("resize", handleResize);
+});
+
+
+function openFullscreen(imageSrc) {
+      const fullscreenDiv = document.createElement('div');
+      fullscreenDiv.style.position = 'fixed';
+      fullscreenDiv.style.top = 0;
+      fullscreenDiv.style.left = 0;
+      fullscreenDiv.style.width = '100%';
+      fullscreenDiv.style.height = '100%';
+      fullscreenDiv.style.backgroundColor = 'rgba(0, 0, 0, 0.9)';
+      fullscreenDiv.style.display = 'flex';
+      fullscreenDiv.style.justifyContent = 'center';
+      fullscreenDiv.style.alignItems = 'center';
+      fullscreenDiv.style.zIndex = 1000;
+
+      const img = document.createElement('img');
+      img.src = imageSrc;
+      img.style.maxWidth = '90%';
+      img.style.maxHeight = '90%';
+      img.style.border = '2px solid white';
+
+      fullscreenDiv.appendChild(img);
+
+      fullscreenDiv.onclick = () => {
+        document.body.removeChild(fullscreenDiv);
+      };
+
+      document.body.appendChild(fullscreenDiv);
+    }
+    </script>
+    
+</body>
+</html>

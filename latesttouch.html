@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lift Doors Showcase</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #F5F5F5;
+            color: #333;
+        }
+        header {
+            background-color:#F9F6F0;
+            color: #D4AF37;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: left;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        header h1 {
+            margin: 0;
+            display: flex;
+            align-items: center;
+        }
+        header img {
+            height: 40px;
+            margin-right: 10px;
+        }
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+        }
+        nav ul li {
+            margin: 0 15px;
+        }
+        nav ul li a {
+            color: #D4AF37;
+            text-decoration: none;
+            font-size: 16px;
+            transition: color 0.3s;
+        }
+        nav ul li a:hover {
+            color: #007BFF;
+        }
+        .category {
+            margin: 40px auto;
+            text-align: center;
+            width: 90%;
+            max-width: 1200px;
+        }
+        .category h2 {
+            margin-bottom: 15px;
+            font-size: 1.8rem;
+            text-transform: uppercase;
+            color: #1A237E;
+            border-bottom: 3px solid #FFD700;
+            display: inline-block;
+            padding-bottom: 10px;
+        }
+        .category p {
+            font-size: 1.1rem;
+            color: #555;
+            margin-bottom: 30px;
+            line-height: 1.6;
+        }
+        .category .lifts {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            justify-content: center;
+        }
+        .category .lift {
+            width: 100%;
+            max-width: 100%;
+            cursor: pointer;
+            border: 2px solid #FFD700;
+            border-radius: 10px;
+            overflow: hidden;
+            background-color: #FFFFFF;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .category .lift:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+        .category .lift img {
+            width: 100%;
+            height: 200px;
+            display: block;
+            object-fit: cover;
+        }
+        .category .lift-name {
+            margin-top: 10px;
+            color: #1A237E;
+            font-size: 1.2rem;
+            text-align: center;
+            font-weight: bold;
+        }
+
+        
+        footer {
+            background-color: #F5F5F5;
+            color: #1A237E;
+            text-align: center;
+            padding: 15px;
+            position: relative;
+            width: 100%;
+            font-size: 1rem;
+            border-top: 3px solid #FFD700;
+            box-shadow: 0 -2px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Fullscreen View Styling */
+        #fullscreen {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+        }
+        #fullscreen img {
+            max-width: 90%;
+            max-height: 80%;
+            border: 5px solid #FFD700;
+            border-radius: 10px;
+        }
+        #fullscreen .close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 2rem;
+            color: #FFF;
+            cursor: pointer;
+        }
+        #fullscreen .lift-name {
+            color: #FFF;
+            font-size: 1.5rem;
+            margin-top: 10px;
+        }
+
+        /* Mobile View Adjustments */
+       
+        @media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+
+/* General Lift Section Styling */
+.lift {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 40px;
+    padding: 20px;
+    background: linear-gradient(135deg, #ffffff, #f7f7f7); /* Subtle gradient */
+    border: 1px solid #e0e0e0;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.08), 0 1px 3px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.lift:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.12), 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Image Styling */
+.lift img {
+    width: 45%;
+    max-width: 500px;
+    height: auto;
+    border-radius: 12px;
+    object-fit: cover;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.lift img:hover {
+    transform: scale(1.03);
+}
+
+/* Content Styling */
+.lift .lift-content {
+    width: 50%;
+    padding: 0 20px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: blue;
+}
+
+.lift h3 {
+    font-size: 1.8rem;
+    color: #1A237E;
+    margin-bottom: 10px;
+    font-weight: 600;
+}
+.lift h4{
+    font-size: 1.3rem;
+    line-height: 1.6;
+    margin: 10px 0;
+    color:#B8860B;
+
+}
+
+.lift p{
+    font-size: 1rem;
+    line-height: 1.6;
+    margin: 10px 0;
+    color:#4D4D4D;
+
+}
+.lift ul {
+    font-size: 1rem;
+    line-height: 1.6;
+    margin: 10px 0;
+   
+
+    padding-left: 20px;
+}
+
+.lift ul li {
+    margin-bottom: 8px;
+    list-style-type: disc;
+    color:#4D4D4D;
+}
+
+/* Alternate Layout for Odd Rows */
+.lift:nth-child(odd) {
+    flex-direction: row; /* Default: image on the left, text on the right */
+}
+
+/* Alternate Layout for Even Rows */
+.lift:nth-child(even) {
+    flex-direction: row-reverse; /* Flip: image on the right, text on the left */
+}
+
+/* Responsive Design for Mobile */
+@media (max-width: 768px) {
+    .lift {
+        flex-direction: column !important; /* Stack vertically on small screens */
+        text-align: center;
+        padding: 15px;
+    }
+
+    .lift img {
+        width: 100%;
+        margin-bottom: 15px;
+    }
+
+    .lift .lift-content {
+        width: 100%;
+        padding: 0;
+    }
+}
+
+    </style>
+</head>
+<body>
+    <header>
+        <h1><img src="logo.png" alt="Company Logo">montanary_elevators</h1>
+        <nav>
+            <button id="menu-toggle" style="display: none;">☰</button>
+
+            <ul>
+                <li><a href="index.html">About Us</a></li>
+                <li><a href="index.html">Services</a></li>
+
+                <li><a href="index.html">products</a></li>
+                <li><a href="videos.html">Videos</a></li>
+
+                <li><a href="index.html">Projects</a></li>
+                
+                <li><a href="index.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+
+    <!-- Automatic Doors -->
+   
+    <div class="lift">
+        <img src="sscabin.jpg" alt="SS Cabin">
+        <div class="lift-content">
+            <h3>SS Cabin (Stainless Steel Cabin)</h3>
+            <h4><strong>Material:</strong> </h4><p>Made from high-grade stainless steel (SS 304 or SS 316), known for its durability, corrosion resistance, and longevity.</p>
+            <h4><strong>Features:</strong></h4>
+            <ul>
+                <li> <strong>Rust-resistant:</strong> Suitable for humid and harsh environments.</li>
+                <li> <strong>Easy to clean:</strong> Stainless steel surfaces are easy to wipe and maintain.</li>
+                <li> <strong>Modern Look:</strong> Sleek, shiny finish that reflects light and adds a contemporary feel</li>
+                <li> <strong>Durability: </strong>Resists dents, scratches, and wear over time.</li>
+            </ul>
+            <h4><strong>Applications:</strong></h4> 
+            <ul>
+                <li>Elevators in industrial buildings.</li>
+                <li>Commercial settings like malls, hospitals, and offices.</li>
+                <li>Modern residential spaces needing a minimalistic look.</li>
+            </ul>
+            <h4><strong>Advantages:</strong> </h4>
+            <ul>
+                <li>Requires minimal maintenance.</li>
+                <li>Hygienic and germ-resistant, making it ideal for hospitals or public spaces.</li>
+
+            </ul>
+        </div>
+    </div>
+    
+
+    <div class="lift">
+        <img src="goldglasscabin.jpg" alt="SS Cabin">
+        <div class="lift-content">
+            <h3>Gold Glass Cabin</h3>
+            <h4><strong>Material:</strong> </h4><p>Crafted using tempered or laminated glass with a gold-tinted coating, offering both strength and a premium finish.
+            </p>
+            <h4><strong>Features:</strong></h4>
+            <ul>
+                <li><strong>Aesthetic Appeal</strong>  Luxurious gold tint adds a sophisticated, premium feel to the cabin.</li>
+                <li><strong>Strength:</strong>Glass is tempered for durability and safety.
+                </li>
+                <li><strong>
+                    Reflective Surface:
+                </strong>Enhances brightness and makes the cabin feel more spacious.</li>
+                
+            </ul>
+            <h4><strong>Applications:</strong></h4> 
+            <ul>
+                <li>Premium hotels, luxury offices, and elite residential spaces.</li>
+                <li>VIP or executive buildings needing a statement design.
+                    </li>
+               
+            </ul>
+            <h4><strong>Advantages:</strong> </h4>
+            <ul>
+                <li>Enhances interior décor with its rich, reflective appearance.</li>
+                <li>Allows natural light to flow through, providing a brighter environment.</li>
+                <li>Creates a high-end ambiance for special spaces.
+                </li>
+
+            </ul>
+        </div>
+    </div>
+
+
+    <div class="lift">
+        <img src="premiumglasscabin.jpg" alt="SS Cabin">
+        <div class="lift-content">
+            <h3>Premium Glass Cabin</h3>
+            <h4><strong>Material:</strong> </h4><p>High-quality tempered or laminated glass for safety and durability. 
+            </p>
+            <h4><strong>Features:</strong></h4>
+            <ul>
+                <li><strong>Transparency:</strong>  Allows visibility and natural light for a modern, open design.</li>
+                <li><strong>Safety</strong>Laminated glass ensures strength, while tempered glass resists shattering.
+                </li>
+                <li><strong>
+                    Clean Design
+                </strong>Smooth, polished edges provide a premium feel.</li>
+                
+            </ul>
+            <h4><strong>Applications:</strong></h4> 
+            <ul>
+                <li>Luxury residential buildings.</li>
+                <li>Corporate offices requiring elegant interiors.
+                    </li>
+                    <li>Elevators with scenic views.</li>
+               
+            </ul>
+            <h4><strong>Advantages:</strong> </h4>
+            <ul>
+                <li>Enhances the look of high-end spaces.</li>
+                <li>Durable, clean, and modern design.</li>
+                <li>Maintains a sense of openness with visibility.
+                </li>
+
+            </ul>
+        </div>
+    </div>
+    
+   
+    <div class="lift">
+        <img src="luxurymarblecabin1.jpg" alt="SS Cabin">
+        <div class="lift-content">
+            <h3>Luxury Marble Cabin</h3>
+            <h4><strong>Material:</strong> </h4><p>Panels made from natural marble, engineered marble, or marble laminate. 
+            </p>
+            <h4><strong>Features:</strong></h4>
+            <ul>
+                <li><strong>Luxury Appeal: </strong> Marble provides a rich, opulent look.</li>
+                <li><strong>Unique Designs</strong>Veining patterns create natural, timeless beauty.
+                </li>
+                <li><strong>
+                    Durability
+                </strong>Resistant to scratches and wear</li>
+                
+            </ul>
+            <h4><strong>Applications:</strong></h4> 
+            <ul>
+                <li>High-end residential elevators.</li>
+                <li>Five-star hotels and luxury buildings.
+                    </li>
+                    <li>Offices needing an upscale appearance.</li>
+               
+            </ul>
+            <h4><strong>Advantages:</strong> </h4>
+            <ul>
+                <li>Adds luxury and grandeur.
+                </li>
+                <li>Long-lasting material with easy maintenance.</li>
+                <li>Enhances value and aesthetics of interiors.
+
+                </li>
+
+            </ul>
+        </div>
+    </div>
+    
+
+    <div class="lift">
+        <img src="woodenfinishcabin.jpg" alt="SS Cabin">
+        <div class="lift-content">
+            <h3>Wooden Finish Cabin</h3>
+            <h4><strong>Material:</strong> </h4><p>Engineered wood, high-quality veneer, or wood-textured laminates.
+            </p>
+            <p>Optional combination with stainless steel or glass panels for added durability and design balance.</p>
+            <h4><strong>Features:</strong></h4>
+            <ul>
+                <li><strong>Natural Appeal: </strong>  Replicates the warmth and elegance of real wood.</li>
+                <li><strong>Variety of Finishes:</strong>Available in various wood grains (oak, walnut, teak, maple) and shades.
+                </li>
+                <li><strong>
+                    Durability
+                </strong>Engineered wood and laminates are treated to resist moisture, warping, and scratches.</li>
+                <li><strong>
+                    Modern Fusion: 
+                </strong>Often combined with steel or glass for a contemporary look.</li>
+                
+            </ul>
+            <h4><strong>Applications:</strong></h4> 
+            <ul>
+                <li>Luxury residential buildings, hotels, executive offices, and heritage interiors.</li>
+                <li>Elevators or cabins where traditional and modern styles blend.</li>
+                  
+            </ul>
+            <h4><strong>Advantages:</strong> </h4>
+            <ul>
+                <li>Provides a cozy and sophisticated ambiance.
+                </li>
+                <li>Durable and easy to clean compared to natural wood.</li>
+                <li>Enhances interior décor with a premium touch.
+                </li>
+
+            </ul>
+        </div>
+    </div>
+    
+    <div class="lift">
+        <img src="blackpearlcabin.jpg" alt="SS Cabin">
+        <div class="lift-content">
+            <h3>Black Pearl Cabin</h3>
+            <h4><strong>Material:</strong> </h4><p>High-quality stainless steel with a black pearl finish (PVD-coated or brushed).
+            </p>
+            <p>Can include glass panels with a smoky tint or black accents for an elegant look.
+        </p>
+            <h4><strong>Features:</strong></h4>
+            <ul>
+                <li><strong>Sophisticated Look:  </strong>  Deep black finish gives a modern, bold, and luxurious appearance.</li>
+                <li><strong>Anti-Fingerprint: </strong>The matte or pearl finish reduces visible fingerprints and smudges.
+
+                </li>
+                <li><strong>
+                    Modern Elegance
+                </strong>Suits contemporary, minimalist interiors</li>
+                <li><strong>
+                    Durability:  
+                </strong>PVD-coating ensures resistance to wear, corrosion, and fading.
+            </li>
+                
+            </ul>
+            <h4><strong>Applications:</strong></h4> 
+            <ul>
+                <li>Corporate offices, premium apartments, luxury hotels, and designer spaces.</li>
+                <li>Elevators in environments demanding modern sophistication.
+                </li>
+                  
+            </ul>
+            <h4><strong>Advantages:</strong> </h4>
+            <ul>
+                <li>Offers a sleek, modern design with a bold aesthetic.
+                </li>
+                <li>Durable, low-maintenance finish.</li>
+                <li>Reduces glare compared to glossy surfaces.
+                </li>
+
+            </ul>
+        </div>
+    </div>
+    
+    <div class="lift">
+        <img src="champangefinishcabin.png" alt="SS Cabin">
+        <div class="lift-content">
+            <h3> Champagne Finish Cabin
+            </h3>
+            <h4><strong>Material:</strong> </h4><p>Stainless steel with a champagne gold PVD finish for a soft, elegant gold tone.
+            </p>
+            <p>Can include textured patterns or frosted glass accents for added luxury
+        </p>
+            <h4><strong>Features:</strong></h4>
+            <ul>
+                <li><strong>Subtle Luxury:  </strong>  Champagne gold offers a softer, understated alternative to bright gold.</li>
+                <li><strong>Versatility: </strong>Complements wood, glass, or marble accents.
+
+
+                </li>
+                <li><strong>
+                    Elegant Finish: 
+                </strong>Suitable for creating a refined, premium atmosphere.</li>
+                <li><strong>
+                    Durability:  
+                </strong>PVD-coated panels ensure resistance to scratches, corrosion, and tarnishing.
+            </li>
+                
+            </ul>
+            <h4><strong>Applications:</strong></h4> 
+            <ul>
+                <li>Luxury hotels, corporate offices, high-end apartments, and event spaces.</li>
+                <li>Elevators in environments requiring a sophisticated, elegant touch.
+                  
+            </ul>
+            <h4><strong>Advantages:</strong> </h4>
+            <ul>
+                <li>Enhances interiors with subtle opulence.
+                </li>
+                <li>Long-lasting finish with minimal maintenance.</li>
+                <li>Combines luxury with modern design elements.</li>
+
+            </ul>
+        </div>
+    </div>
+    
+   
+    
+        
+    <footer>
+        &copy; 2024 montanary_elevators ! All Rights Reserved.
+    </footer>
+
+    <!-- Fullscreen View -->
+    <div id="fullscreen">
+        <span class="close" id="close">&times;</span>
+        <img id="fullscreenImg" src="" alt="Full Screen View">
+        <div class="lift-name" id="fullscreenName"></div>
+    </div>
+
+    <script>
+         document.addEventListener("DOMContentLoaded", () => {
+    const menuToggle = document.getElementById("menu-toggle");
+    const nav = document.querySelector("nav ul");
+
+    // Toggle button visibility on smaller screens
+    const handleResize = () => {
+        if (window.innerWidth <= 768) {
+            menuToggle.style.display = "block";
+            nav.style.display = "none";
+        } else {
+            menuToggle.style.display = "none";
+            nav.style.display = "flex";
+        }
+    };
+
+    // Toggle the navigation menu visibility
+    menuToggle.addEventListener("click", () => {
+        if (nav.style.display === "none" || nav.style.display === "") {
+            nav.style.display = "flex";
+        } else {
+            nav.style.display = "none";
+        }
+    });
+
+    // Handle initial load and resize events
+    handleResize();
+    window.addEventListener("resize", handleResize);
+});
+
+        document.querySelectorAll('.lift img').forEach(img => {
+            img.addEventListener('click', function () {
+                const lift = this.parentElement;
+                const fullscreen = document.getElementById('fullscreen');
+                const fullscreenImg = document.getElementById('fullscreenImg');
+                const fullscreenName = document.getElementById('fullscreenName');
+                fullscreenImg.src = this.src;
+                fullscreenName.textContent = lift.dataset.name;
+                fullscreen.style.display = 'flex';
+            });
+        });
+
+        document.getElementById('close').addEventListener('click', function () {
+            const fullscreen = document.getElementById('fullscreen');
+            fullscreen.style.display = 'none';
+        });
+
+        // Close the fullscreen view on clicking outside the image
+        document.getElementById('fullscreen').addEventListener('click', function (event) {
+            if (event.target === this) {
+                this.style.display = 'none';
+            }
+        });
+    </script>
+</body>
+</html>
