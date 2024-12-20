@@ -735,6 +735,99 @@
         .section-title{
             color: #B8860B;
         }
+
+ /* Enquiry Form Section */
+#enquiry-section {
+  max-width: 600px;
+  margin: 50px auto;
+  padding: 20px;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.enquiry-form-container h2 {
+  font-size: 24px;
+  color: #444;
+  margin-bottom: 10px;
+}
+
+.enquiry-form-container p {
+  font-size: 14px;
+  color: #777;
+  margin-bottom: 20px;
+}
+
+/* Form Styling */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+label {
+  text-align: left;
+  font-weight: bold;
+  margin-bottom: 5px;
+  font-size: 14px;
+}
+
+input, textarea, button {
+  font-size: 16px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  width: 100%;
+}
+
+input:focus, textarea:focus {
+  border-color: #0066cc;
+  outline: none;
+  box-shadow: 0 0 3px rgba(0, 102, 204, 0.5);
+}
+
+textarea {
+  resize: none;
+}
+
+/* Buttons */
+button {
+  background: #0066cc;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+button:hover {
+  background: #004a99;
+}
+
+button:disabled {
+  background: #ccc;
+  cursor: not-allowed;
+}
+
+/* Response Message */
+#responseMessage {
+  margin-top: 15px;
+  font-size: 14px;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+  #enquiry-section {
+    margin: 20px;
+    padding: 15px;
+  }
+
+  input, textarea, button {
+    font-size: 14px;
+    padding: 8px;
+  }
+}
+
     </style>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
@@ -1047,6 +1140,32 @@
             </div>
         </div>
     </section>
+
+    <section id="enquiry-section">
+        <div class="enquiry-form-container">
+          <h2>Contact Us</h2>
+          <p>Fill out the form below, and we’ll get back to you!</p>
+          <form id="enquiryForm">
+            <label for="name">Name</label>
+            <input type="text" id="name" placeholder="Your Name" required />
+          
+            <label for="email">Email</label>
+            <input type="email" id="email" placeholder="Your Email" required />
+          
+            <label for="phone">Phone Number</label>
+            <input type="tel" id="phone" placeholder="Your Phone Number" required pattern="[0-9]{10}" title="Enter a valid 10-digit phone number" />
+          
+            <label for="message">Message</label>
+            <textarea id="message" placeholder="Your Message" rows="5" required></textarea>
+          
+            <button type="submit">Send to Gmail</button>
+            <button type="button" id="sendWhatsApp">Send to WhatsApp</button>
+          </form>
+          <div id="responseMessage"></div>
+        </div>
+      </section>
+
+   
     <a href="tel:+919000737676" class="call-button" title="Call Us">
         <span class="call-icon">📞</span>
     </a>
@@ -1142,6 +1261,55 @@ function openFullscreen(imageSrc) {
 
       document.body.appendChild(fullscreenDiv);
     }
+
+
+    document.getElementById('enquiryForm').addEventListener('submit', async function (e) {
+  e.preventDefault();
+
+  const name = document.getElementById('name').value;
+  const email = document.getElementById('email').value;
+  const phone = document.getElementById('phone').value;
+  const message = document.getElementById('message').value;
+  const responseMessage = document.getElementById('responseMessage');
+
+  try {
+    const response = await fetch('http://127.0.0.1:5000/send-enquiry', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ name, email, phone, message }),
+    });
+
+    if (response.ok) {
+      responseMessage.textContent = 'Enquiry sent successfully!';
+      responseMessage.style.color = 'green';
+    } else {
+      throw new Error('Failed to send enquiry. Please try again.');
+    }
+  } catch (error) {
+    responseMessage.textContent = error.message;
+    responseMessage.style.color = 'red';
+  }
+});
+
+
+document.getElementById('sendWhatsApp').addEventListener('click', function () {
+  const name = document.getElementById('name').value;
+  const email = document.getElementById('email').value;
+  const phone = document.getElementById('phone').value;
+  const message = document.getElementById('message').value;
+
+  if (name && email && phone && message) {
+    const whatsappMessage = `Name: ${name}%0AEmail: ${email}%0APhone: ${phone}%0A%0AMessage:%0A${message}`;
+    window.open(`https://wa.me/919000737676?text=${whatsappMessage}`, '_blank'); // Replace with your WhatsApp number
+  } else {
+    alert('Please fill in all fields before sending.');
+  }
+});
+
+
+
     </script>
     
 </body>
