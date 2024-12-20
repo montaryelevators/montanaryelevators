@@ -2,3 +2,5 @@ Flask==2.3.2
 Flask-Mail==0.9.1
 gunicorn==20.1.0
 python-dotenv==1.0.0
+Flask-Cors==3.0.10
+SQLAlchemy==2.0.5
